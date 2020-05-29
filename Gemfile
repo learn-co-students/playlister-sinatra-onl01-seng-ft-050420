@@ -10,6 +10,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'tux'
+gem 'activerecord-reset-pk-sequence'
 
 group :test do
   gem 'launchy'
