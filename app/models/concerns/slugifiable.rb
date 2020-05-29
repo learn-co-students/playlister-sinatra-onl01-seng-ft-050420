@@ -3,7 +3,7 @@ module Slugifiable
   module InstanceMethods 
 
     def slug
-      self.name.downcase.split(" ").join("-")
+      name.downcase.gsub(' ', '-').gsub(/[^\w-]/, '')
     end 
 
   end 
@@ -11,8 +11,10 @@ module Slugifiable
   module ClassMethods
 
     def find_by_slug(slug)
-      name = slug.split("-").map { |word| word.capitalize }.join(" ")
-      self.find_by(name: name)
+      self.all.find do |obj|
+        obj.name.downcase == slug.gsub('-', ' ') || 
+        obj.name.downcase == slug
+      end 
     end
     
   end
