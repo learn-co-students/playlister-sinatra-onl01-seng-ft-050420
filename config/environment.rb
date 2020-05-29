@@ -20,8 +20,6 @@ ActiveRecord::Base.establish_connection(
 )
 
 
-# require_relative '../app/controllers/songs_controller.rb'
-# require_relative '../app/controllers/application_controller.rb'
 require_relative '../app/models/concerns/slugifiable.rb'
 require_all 'app'
 require_all 'lib'
