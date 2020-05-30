@@ -10,6 +10,9 @@ gem 'thin'
 gem 'shotgun'
 gem 'pry'
 gem 'tux'
+gem 'activerecord-reset-pk-sequence'
+gem 'rack-flash3'
+gem 'sinatra-redirect-with-flash'
 
 group :test do
   gem 'launchy'
