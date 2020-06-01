@@ -1,5 +1,5 @@
-class SongsController < Sinatra::Base
-  get '/songs' do
-    erb :'/songs/index'
-  end
+class SongsController < ApplicationController
+
+  
+
 end
