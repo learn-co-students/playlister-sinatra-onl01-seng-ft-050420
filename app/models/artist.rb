@@ -5,4 +5,8 @@ class Artist < ActiveRecord::Base
   def slug
     return self.name.gsub(" ", "-").downcase
   end
+  
+  def self.find_by_slug(slug)
+    Artist.all.find { |x| x.slug == slug }
+  end
 end
