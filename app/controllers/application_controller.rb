@@ -24,6 +24,10 @@ class ApplicationController < Sinatra::Base
     erb :'/songs/edit'
   end
   
+  get 'songs/new' do
+    erb :'/songs/new'
+  end
+  
   #move to artists
   get '/artists' do
     erb :'/artists/index'
