@@ -21,7 +21,6 @@ describe "Playlister Basics" do
       before do
         visit "/songs"
       end
-
       it 'responds with a 200 status code' do
         expect(page.status_code).to eq(200)
       end
