@@ -48,7 +48,6 @@ describe "Playlister Basics" do
       end
 
       it "contains links to each artist's show page" do
-        puts page.body
         expect(page).to have_css("a[href='/artists/#{@artist.slug}']")
       end
     end
