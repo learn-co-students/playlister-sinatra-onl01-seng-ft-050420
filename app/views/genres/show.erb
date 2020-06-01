@@ -1,0 +1,5 @@
+<ul>
+  <% @genre.artists.each do |x| %>
+  <li> <a href="/artists/<%= x.slug %>"> <%= x.name %> </a></li>
+  <% end %>
+</ul>
