@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
   
   #move to songs
   get '/songs' do
-    erb :'/songs/index'
+    erb :'songs/index'
   end
   
   get '/songs/new' do
@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
   get '/songs/:slug' do
     slug = params[:slug]
     @song = Song.find_by_slug(slug)
-    erb :'/songs/show'
+    erb :'songs/show'
   end
   
   post '/songs' do
@@ -38,12 +38,12 @@ class ApplicationController < Sinatra::Base
     @song.save
     
     flash[:message] = "Successfully created song."
-    redirect("/songs/#{@song.slug}")
+    redirect "/songs/#{@song.slug}"
   end
     
   get '/songs/:slug/edit' do
     @song = Song.find_by_slug(params[:slug])
-    erb :'/songs/edit'
+    erb :'songs/edit'
   end
   
   patch '/songs/:slug' do
@@ -59,7 +59,7 @@ class ApplicationController < Sinatra::Base
     @song.save
     
     flash[:message] = "Successfully updated song."
-    redirect("/songs/#{@song.slug}")
+    redirect "/songs/#{@song.slug}"
   end
  
   #move to artists
