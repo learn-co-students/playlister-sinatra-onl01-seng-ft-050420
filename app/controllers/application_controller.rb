@@ -16,15 +16,6 @@ class ApplicationController < Sinatra::Base
   get '/songs' do
     erb :'/songs/index'
   end
-
-  post '/songs' do
-    @song = Song.create(params[:song])
-    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
-    @song.genre_ids = params[:genres]
-    @song.save
-
-    redirect("/songs/#{@song.slug}")
-  end
   
   get '/songs/new' do
     erb :'songs/new'
@@ -39,6 +30,8 @@ class ApplicationController < Sinatra::Base
     @song.artist = Artist.find_or_create_by(name: artist)
     @song.genre_ids = genres
     @song.save
+    
+    flash[:message] = "Successfully created song."
   end
   
   get '/songs/:slug' do
