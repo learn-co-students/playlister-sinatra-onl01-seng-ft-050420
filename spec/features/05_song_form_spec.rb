@@ -63,7 +63,7 @@ describe 'Song Forms' do
         check 'Hippity Hop'
         fill_in 'Artist Name', with: artist_name
         click_on 'Create'
-
+        puts page.body
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)
         expect(page).to have_content(genre_1_name)

@@ -21,6 +21,12 @@ class ApplicationController < Sinatra::Base
     erb :'songs/new'
   end
   
+  get '/songs/:slug' do
+    slug = params[:slug]
+    @song = Song.find_by_slug(slug)
+    erb :'/songs/show'
+  end
+  
   post '/songs' do
     name = params[:song]
     artist = params[:artist][:name]
@@ -35,12 +41,6 @@ class ApplicationController < Sinatra::Base
     redirect "/songs/#{@song.slug}"
   end
   
-  get '/songs/:slug' do
-    slug = params[:slug]
-    @song = Song.find_by_slug(slug)
-    erb :'/songs/show'
-  end
-
   patch '/songs/:slug' do
     @song = Song.find_by_slug(params[:slug])
     @song.update(params[:song])
