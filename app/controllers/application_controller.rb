@@ -32,6 +32,7 @@ class ApplicationController < Sinatra::Base
     @song.save
     
     flash[:message] = "Successfully created song."
+    redirect "/songs/#{@song.slug}"
   end
   
   get '/songs/:slug' do
