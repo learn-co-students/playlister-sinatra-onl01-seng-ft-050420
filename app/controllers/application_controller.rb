@@ -40,6 +40,11 @@ class ApplicationController < Sinatra::Base
     flash[:message] = "Successfully created song."
     redirect("/songs/#{@song.slug}")
   end
+    
+  get '/songs/:slug/edit' do
+    @song = Song.find_by_slug(params[:slug])
+    erb :'songs/edit'
+  end
   
   patch '/songs/:slug' do
     slug = params[:slug]
@@ -56,12 +61,7 @@ class ApplicationController < Sinatra::Base
     flash[:message] = "Successfully updated song."
     redirect("/songs/#{@song.slug}")
   end
-  
-  get '/songs/:slug/edit' do
-    @song = Song.find_by_slug(params[:slug])
-    erb :'songs/edit'
-  end
-  
+ 
   #move to artists
   get '/artists' do
     erb :'/artists/index'
