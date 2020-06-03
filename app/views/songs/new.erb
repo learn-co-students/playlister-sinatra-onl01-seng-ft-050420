@@ -8,4 +8,6 @@
   <% Genre.all.each do |x| %>
     <input type="checkbox" name="genres[]" id="<%= x.name %>" value="<%= x.id %>">
   <% end %>
+  
+  <input type="submit" value="Create">
 </form>
