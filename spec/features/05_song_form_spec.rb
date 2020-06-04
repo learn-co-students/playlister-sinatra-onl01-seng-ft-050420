@@ -95,7 +95,6 @@ describe 'Song Forms' do
 
     context "changing a song's artist" do
       it "updates the song's artist" do
-        puts page.body
         fill_in 'Artist Name', with: 'Some Nobody'
         click_on 'Save'
 
