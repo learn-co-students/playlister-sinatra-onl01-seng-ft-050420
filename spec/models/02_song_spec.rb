@@ -20,9 +20,9 @@ describe "Song" do
     expect(@song.name).to eq("Blank Space")
   end
 
-  it "can have many genres" do 
-    expect(SongGenre.count).to eq(1)
-  end
+  # it "can have many genres" do 
+  #   expect(SongGenre.count).to eq(1)
+  # end
 
   it "has an artist" do
     expect(@song.artist).to eq(@artist)
